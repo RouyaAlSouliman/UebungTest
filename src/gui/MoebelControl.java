@@ -39,7 +39,7 @@ public class MoebelControl {
 			}
 			catch(Exception exc){
 				this.moebelview.zeigeFehlermeldungsfensterAn(
-					"Unbekannter Fehler beim Lesen!");
+					"Unbekannter Fehler beim Lesen!"+ exc.getMessage());
 			}
 		}
 	 

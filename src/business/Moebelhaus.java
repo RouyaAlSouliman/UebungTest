@@ -5,12 +5,9 @@ public class Moebelhaus {
 
 	
     private String name;
-    
     private String wohnraum;
     private String stil;
-   
     private double preis;
-   
     private String[] materilien;
 
     
@@ -91,7 +88,7 @@ public class Moebelhaus {
   		return this.getName() + trenner 
   			+ this.getWohnraum() + trenner
   		    + this.getStil() + trenner
-  		    + this.getPreis() + trenner + "\n"
+  		    + this.getPreis() + trenner 
   		    + this.getMaterialAlsString(trenner) + "\n";
   	}
 }
