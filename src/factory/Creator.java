@@ -6,6 +6,6 @@ public abstract class Creator {
 	
 	
 	
-	public abstract Product factoryMethod(String typ) throws IOException;
+	public abstract Product factoryMethod() throws IOException;
 
 }

@@ -10,8 +10,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import factory.ConcreteCreatorAB;
-
+import factory.ConcreteCreatorA;
+import factory.ConcreteCreatorB;
 import factory.Creator;
 import factory.Product;
 
@@ -43,8 +43,15 @@ public class MoebelModel {
 	  public void leseAusDatei(String typ) throws IOException{
 		
 		
-		  Creator creator=new ConcreteCreatorAB();
-		  Product reader=creator.factoryMethod(typ); 
+		  
+		  Creator creator=null;
+		  if(typ.equals("csv")) {
+				creator=new ConcreteCreatorA();
+		  }
+		  else {
+			  creator=new ConcreteCreatorB();
+		  }
+		  Product reader=creator.factoryMethod(); 
 		  String[] zeile = reader.leseAusDatei();
 			this.moebel = new Moebelhaus(zeile[0], 
 				zeile[1], 

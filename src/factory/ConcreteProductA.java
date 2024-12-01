@@ -19,7 +19,7 @@ public class ConcreteProductA extends Product{
 	public String[] leseAusDatei() throws IOException {
 		
 		
-		String []ergbniszeile=new String [5];
+		String []ergbniszeile=new String [1];
 		String zeile=br.readLine();
 		int i=0;
 		while(i <ergbniszeile.length) {
