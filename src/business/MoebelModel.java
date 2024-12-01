@@ -9,19 +9,36 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.LinkedList;
 
 import factory.ConcreteCreatorA;
 import factory.ConcreteCreatorB;
 import factory.Creator;
 import factory.Product;
+import ownUtil.Observable;
+import ownUtil.Observer;
 
 
 
+public class MoebelModel  implements Observable{
+ 	
+	LinkedList<Observer> liste = new LinkedList<Observer>();
 
-
-
-public class MoebelModel {
-
+	private static MoebelModel theInstance;
+	
+	private MoebelModel() {
+		
+	}
+	
+	
+	public static MoebelModel getInstance() {
+		if(theInstance == null) {
+			theInstance=new MoebelModel() ;
+			
+		}
+		return theInstance;
+	}
+	
 	
 	
 	private Moebelhaus moebel;
@@ -35,6 +52,7 @@ public class MoebelModel {
 
 	public void setMoebel(Moebelhaus moebel) {
 		this.moebel = moebel;
+		notifyObservers();
 	}
 	
 	
@@ -82,6 +100,29 @@ public class MoebelModel {
 	      				
 	      				aus.close();
 	      			}
+
+				@Override
+				public void addObserver(Observer obs) {
+					// TODO Auto-generated method stub
+					liste.add(obs);
+
+				}
+
+				@Override
+				public void removeObserver(Observer obs) {
+					// TODO Auto-generated method stub
+					liste.remove(obs);
+
+				}
+
+				@Override
+				public void notifyObservers() {
+					// TODO Auto-generated method stub
+					for(Observer o:liste) {
+						o.update();
+					}
+					
+				}
 	
 	      		
 }

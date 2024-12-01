@@ -1,6 +1,7 @@
-package gui;
+package gui.guiMoebelhaus;
 
 import java.io.BufferedReader;
+
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -26,9 +27,6 @@ import javafx.stage.Stage;
 import ownUtil.MeldungsfensterAnzeiger;
 
 public class MoebelView {
-	
-	
-	
 	
 	
 	
@@ -62,7 +60,7 @@ public class MoebelView {
 	    	this.moebelmodel=moebelmodel;
 	    	Scene scene = new Scene(this.pane, 700, 340);
 	    	primaryStage.setScene(scene);
-	    	primaryStage.setTitle("Verwaltung von Bürgerämtern");
+	    	primaryStage.setTitle("Verwaltung von Moebelhaus");
 	    	primaryStage.show();
 	    	this.initKomponenten();
 			this.initListener();
@@ -172,8 +170,9 @@ public class MoebelView {
 	    
 	   
 	   
-	    private void zeigeMoebelhausAn(){
+	    public void zeigeMoebelhausAn(){
 	    	if(this.moebelmodel.getMoebel() != null){
+	    
 	    		txtAnzeige.setText(
 	    				this.moebelmodel.getMoebel().gibMoebelhausZurueck(' '));
 	    	}
@@ -239,6 +238,7 @@ public class MoebelView {
 	
 	
 	
+		
 	
 	
 	
